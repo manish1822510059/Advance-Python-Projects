@@ -5,7 +5,8 @@ Your message and alert can be absolutely anything you want. You can have a list 
 the reminder app will constantly remind you of the same.
 
 For this task you need to install a Python library known as Plyer, which is used to access the hardware components of your system.
-This library can be easily installed by using the pip command; pip install pyler.
+This library can be easily installed by using the pip command; 
+pip install pyler.
 
 Now let’s see how to write a Python program to get desktop notifications:
 
