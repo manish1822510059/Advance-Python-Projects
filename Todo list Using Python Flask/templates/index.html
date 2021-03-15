@@ -1,0 +1,139 @@
+{% extends 'base.html' %}
+{% block title %} Home {% endblock title %}
+{% block body %}
+
+
+
+    <div class="container my-3">
+        <h2>Add a Todo</h2>
+
+        <form action="/" method="POST">
+            <div class="mb-3">
+                <label for="Title" class="form-label">Todo Title</label>
+                <input type="text" class="form-control" name="Title" id="Title" aria-describedby="emailHelp">
+
+            </div>
+            <div class="mb-3">
+                <label for="desc" class="form-label">Todo Description</label>
+                <input type="text" class="form-control" name="desc" id="desc">
+            </div>
+            <div >
+              <a  href="/" role="button"
+          ><em class='bx bxs-hand-down bx-fade-up bx-md' ></em></em></a>
+            
+             </div>
+
+            <button type="submit" class="btn btn-dark">Submit</button>
+        </form>
+
+
+
+    </div>
+    <div class="container my=3">
+        <h2>Your Todos</h2>
+
+        {% if allTodo|length==0 %}
+        <div class="alert alert-dark" role="alert">
+            No Todos found!. Add your first todo Now.
+        </div>
+        {% else %}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">SNo</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Time</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+
+
+            <tbody>
+
+                {% for todo in allTodo %}
+
+                <tr>
+                    <th scope="row">{{loop.index}}</th>
+                    <td>{{todo.Title}}</td>
+                    <td>{{todo.desc}}</td>
+                    <td>{{todo.date_created}}</td>
+                    <td><a href="/update/{{todo.sno}}" type="button"
+                            class="btn btn-outline-dark btn-sm mx-1">Update</button></td>
+                    <td><a href="/delete/{{todo.sno}}" type="button"
+                            class="btn btn-outline-dark btn-sm mx-1">Delete</button></td>
+                </tr>
+
+
+
+
+                {% endfor %}
+               
+   
+    
+        {% endif %} 
+    </tbody>
+</table>
+    
+</div>
+<footer class="bg-dark text-center text-white">
+    <!-- Grid container -->
+    <div class="container p-4 pb-0">
+      <!-- Section: Social media -->
+      <section class="mb-4">
+        <!-- Facebook -->
+        <a class="btn btn-outline-light btn-floating m-1" href="https://www.facebook.com/imanish.kumar.3/" role="button"
+          ><i class='bx bxl-facebook'></i></a>
+  
+        <!-- Twitter -->
+        <a class="btn btn-outline-light btn-floating m-1" href="https://twitter.com/imanish1998" role="button"
+          ><i class="bx bxl-twitter"></i
+        ></a>
+  
+        <!-- Google -->
+        <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button"
+          ><i class="bx bxl-google"></i
+        ></a>
+  
+        <!-- Instagram -->
+        <a class="btn btn-outline-light btn-floating m-1" href="https://www.instagram.com/imanish1998/?hl=en" role="button"
+          ><i class='bx bxl-instagram'></i></a>
+  
+        <!-- Linkedin -->
+        <a class="btn btn-outline-light btn-floating m-1" href="https://www.linkedin.com/in/manish-k-951800135/" role="button"
+          ><i class="bx bxl-linkedin"></i
+        ></a>
+  
+        <!-- Github -->
+        <a class="btn btn-outline-light btn-floating m-1" href="https://github.com/manish1822510059" role="button"
+          ><i class="bx bxl-github"></i
+        ></a>
+      </section>
+      <!-- Section: Social media -->
+    </div>
+    <!-- Grid container -->
+  
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+      © 2021 Copyright:
+      <a class="text-white" href="https://notestoconnect.wordpress.com/">Notestoconnect.com</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+
+
+
+
+<!-- Optional JavaScript; choose one of the two! -->
+
+<!-- Option 1: Bootstrap Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+    crossorigin="anonymous"></script>
+
+<!-- Option 2: Separate Popper and Bootstrap JS -->
+<!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.6.0/dist/umd/popper.min.js" integrity="sha384-KsvD1yqQ1/1+IA7gi3P0tyJcT3vR+NdBTt13hSJ2lnve8agRGXTTyNaBYmCR/Nwi" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
+    -->
+{% endblock body %}
